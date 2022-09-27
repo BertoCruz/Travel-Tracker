@@ -12,7 +12,8 @@
 
 ## Milestones
 
-## Challenges 
+## Challenges
+- When you first jump into the site, the program is running a `load` on the window event listener to instantiate all the data before you even login, and I acknowledge this. However, I made this decision, because I need to be able to check the username and password against the data first before I can even show a user's profile. I acknowledge that this isn't a real world application and it will be something I will be refactoring to my code later on.
 
 ### Set Up
 1. Clone the following repos
