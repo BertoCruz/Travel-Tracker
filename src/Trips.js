@@ -3,15 +3,15 @@ class Trips {
         this.tripsData = data;
     }
 
-    checkIfUserExists(travelerID) {
+    checkIfTripExists(tripID) {
         const quickFind = this.tripsData.find((trip) => {
-            return trip.userID === travelerID;
+            return trip.id === tripID;
         });
 
         if (quickFind) {
-            return `Traveler ID ${travelerID} exists.`;
+            return `Trip ID ${tripID} exists.`;
         } else {
-            return `Traveler ID ${travelerID} does not exist.`;
+            return `Trip ID ${tripID} does not exist.`;
         }
     }
 

@@ -16,20 +16,20 @@ describe("Destinations", () => {
         trips = new Trips(mockTripsData);
     });
 
-    it.only("Should be a function", () => {
+    it("Should be a function", () => {
         expect(Destinations).to.be.a("function");
     });
 
-    it.only("Should instantiate a new instance of Trips", () => {
+    it("Should instantiate a new instance of Trips", () => {
         expect(destinations).to.be.an.instanceof(Destinations);
     });
 
-    it.only("Should check if a destination exists", () => {
+    it("Should check if a destination exists", () => {
         expect(destinations.checkIfDestinationExists(9)).to.equal("Destination ID 9 exists.");
         expect(destinations.checkIfDestinationExists(91)).to.equal("Destination ID 91 does not exist.");
     });
 
-    it.only("Should be able to calculate a traveler's trips for a given year", () => {
+    it("Should be able to calculate a traveler's trips for a given year", () => {
         const travelerTrips1 = trips.getAllApprovedTrips(traveler14.id);
         const travelerTrips2 = trips.getAllApprovedTrips(traveler15.id);
 
@@ -37,7 +37,7 @@ describe("Destinations", () => {
         expect(destinations.calculateAYearTripsExpense(travelerTrips2, 2022)).to.deep.equal(11121);
     });
 
-    it.only("Should be able to calculate a trip's cost", () => {
+    it("Should be able to calculate a trip's cost", () => {
         const trip1 = {
             id: 119,
             userID: 10,
@@ -63,7 +63,7 @@ describe("Destinations", () => {
         expect(destinations.calculateTripEstimate(trip2)).to.equal(16863);
     });
 
-    it.only("Should return information of a destination", () => {
+    it("Should return information of a destination", () => {
         expect(destinations.getDestination(21)).to.deep.equal([
             {
                 id: 21,

@@ -22,8 +22,8 @@ describe("Trips", () => {
     });
 
     it("Should check if traveler id exists", () => {
-        expect(trips.checkIfUserExists(traveler14.id)).to.equal("Traveler ID 14 exists.");
-        expect(trips.checkIfUserExists(20)).to.equal("Traveler ID 20 does not exist.");
+        expect(trips.checkIfTripExists(171)).to.equal("Trip ID 171 exists.");
+        expect(trips.checkIfTripExists(89)).to.equal("Trip ID 89 does not exist.");
     });
 
     it("Should return all of a travelers trips; past, upcoming and pending", () => {
