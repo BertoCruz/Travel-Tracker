@@ -11,10 +11,10 @@
 <body>
   <header>
     <h1>Travel Tracker</h1>
-    <section class="welcome hidden" id="welcomeMessage"></section>
+    <section class="welcome" id="welcomeMessage"></section>
   </header>
   <main class="main">
-    <section class="login" id="login"> 
+    <section class="login hidden" id="login"> 
       <form class="login-form" id="loginForm">
         <div class="form-container">
           <label for="userName">Username:</label>
@@ -33,20 +33,23 @@
     <section class="user-input hidden" id="user-input">
       <div class="form-container">
         <button class="add-data" id="addData">ADD NEW DATA</button>
-        <form class="hidden" id="form">
-          <div class="align">
-            <input type="date" id="start" name="form-date" value="2019-06-23" min="2019-01-01" max="2022-12-31">
-          </div>
           <div class="inputs">
             <div class="form-section">Traveler
-              <label for="">Hours Slept</label>
+              <label for="">Name</label>
               <input type="number" id="" name="hours-slept" required="required" placeholder="7.5">
-              <label for="">Sleep Quality</label>
+              <label for="">Traveler Type</label>
               <input type="number" id="" name="sleep-quality" required="required" placeholder="4.3">
             </div>
             <div class="form-section">Trips
-              <label for="">Ounces Drank</label>
+              <label for="">Destination</label>
+              <!-- <input type="number" id="" name="ounces-drank" required="required" placeholder="87"> -->
+              <section class="destinations" id="destinationsScroll"></section>
+              <label for="">Travelers</label>
               <input type="number" id="" name="ounces-drank" required="required" placeholder="87">
+              <label for="">From</label>
+              <input type="date" id="start" name="form-date" value="2019-06-23" min="2019-01-01" max="2022-12-31">
+              <label for="">To</label>
+              <input type="date" id="start" name="form-date" value="2019-06-23" min="2019-01-01" max="2022-12-31">
             </div>
             <div class="form-section">Destination
               <label for="">Number of Steps</label>
@@ -63,7 +66,7 @@
         </form>
       </div>
     </section>
-    <section class="main-trips hidden" id="mainTrips">
+    <section class="main-trips" id="mainTrips">
       <section class="upcoming-trips-container" id="">
         <div class="upcoming-trips">Upcoming trips</div>
         <section class="widget" id="upcomingTrips">

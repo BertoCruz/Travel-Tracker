@@ -90,3 +90,10 @@ body {
     height: 35%;
     width: 40%;
 }
+
+.scroll {
+  display: inline-block;
+  margin: 0;
+  margin-right: 1.5vw;
+  margin-top: 1.5vh;
+}

@@ -5,7 +5,7 @@ import Destinations from "./Destinations";
 import { getTravelerApiData, getTripsApiData, getDestinationsApiData } from "./apiCalls";
 
 let currentTraveler, allTravelers, loginID, trips, destinations, travelersData, tripsData, destinationsData;
-let loggedIn = false;
+let loggedIn = true;
 
 function instantiateAllData() {
     Promise.all([getTravelerApiData(), getTripsApiData(), getDestinationsApiData()]).then(
@@ -14,18 +14,18 @@ function instantiateAllData() {
             tripsData = data[1].trips;
             destinationsData = data[2].destinations;
             console.log("TRAVELERS DATA====",travelersData);
-            // console.log("TRIPS DATA=====", tripsData);
-            // console.log("DESTINATIONS DATA======", destinationsData);
+            console.log("TRIPS DATA=====", tripsData);
+            console.log("DESTINATIONS DATA======", destinationsData);
             // currentTraveler = new Traveler(
             //     travelersData[Math.floor(Math.random() * travelersData.length)]
             // );
+            allTravelers = new Traveler(travelersData);
             if(loggedIn){
                 currentTraveler = new Traveler((travelersData[loginID]))
+                trips = new Trips(tripsData);
+                destinations = new Destinations(destinationsData);
+                loadTraveler();
             }
-            allTravelers = new Traveler(travelersData);
-            trips = new Trips(tripsData);
-            destinations = new Destinations(destinationsData);
-            loadTraveler();
         }
     );
 }
@@ -37,6 +37,7 @@ const loginMessage = document.querySelector("#loginMessage");
 const welcomeMessage = document.querySelector("#welcomeMessage");
 const mainTrips = document.querySelector("#mainTrips");
 const upcomingTrips = document.querySelector("#upcomingTrips");
+const destinationsScroll = document.querySelector("#destinationsScroll")
 
 //event handlers
 window.addEventListener("load", instantiateAllData);
@@ -46,15 +47,12 @@ loginForm.addEventListener("submit", (e) => {
     // console.log(loginData.get("username-value"));
     // const travelID = loginData.get("username-value");
 
-    showHideLoginForm();
-    // if (
-    //     verifyLogin(loginData.get("username-value"), loginData.get("password-value")) !== `invalid`
-    // ) {
-    //     instantiateAllData();
-    //     showHideLoginForm();
-    // } else {
-    //     e.target.reset();
-    // }
+    // showHideLoginForm();
+    if (
+        verifyLogin(loginData.get("username-value"), loginData.get("password-value")) === `invalid`
+    ) {
+        e.target.reset();
+    } 
     
 });
 
@@ -76,6 +74,9 @@ function verifyLogin(username, password) {
     if (idValidation === `Traveler ID ${parseInt(username.slice(8))} exists.`) {
         loginID = parseInt(username.slice(8));
         loggedIn = true;
+        instantiateAllData();
+        showHideLoginForm();
+        return;
     } else if (idValidation === `Traveler ID ${parseInt(username.slice(8))} does not exist.`) {
         loginMessage.innerHTML = `* ${username} not found, please try again.`;
         return `invalid`;
@@ -84,11 +85,13 @@ function verifyLogin(username, password) {
 }
 
 function showHideLoginForm() {
-    if (welcomeMessage.classList.value === "hidden") {
+
+    // console.log(welcomeMessage.classList.value.includes("hidden"));
+    if (welcomeMessage.classList.value.includes("hidden")) {
         login.classList.add("hidden");
         welcomeMessage.classList.remove("hidden");
         mainTrips.classList.remove("hidden");
-    } else if (login.classList.value === "hidden") {
+    } else if (login.classList.value.includes("hidden")) {
         welcomeMessage.classList.add("hidden");
         mainTrips.classList.add("hidden");
         login.classList.remove("hidden");
@@ -96,16 +99,38 @@ function showHideLoginForm() {
 };
 
 function loadTraveler() {
-    //renderWelcomeMessage();
-    // renderUpcomingTrips();
+    renderWelcomeMessage();
+    renderUpcomingTrips();
+    displayDestinations();
 }
 
 function renderWelcomeMessage() {
-    welcomeMessage.innerHTML = `
-    <section class="welcome">Welcome Back ${currentTraveler.getFirstName()}</section>`;
+    if(loggedIn){
+        welcomeMessage.innerHTML = `
+        <section class="welcome">Welcome Back ${currentTraveler.getFirstName()}</section>`;
+    }
 }
 
 function renderUpcomingTrips() {
-    upcomingTrips.innerHTML = ``;
+    if(loggedIn){
+        const upcoming = trips.getAllUpcomingApprovedTrips(currentTraveler.id, "2022/09/27");
+        console.log(upcoming);
+        upcomingTrips.innerHTML = `
+        `;
+    }
+}
+
+function displayDestinations() {
+    destinations.destinationsData.forEach((dest) => {
+        destinationsScroll.innerHTML += `
+            <figure class="scroll">
+                <img class="destination-img" src="${dest.image}" alt="${dest.alt}"></img>
+                <div class="info">
+                <figcaption class="destination-name"> ${dest.destination} </figcaption>
+                <p class="figure-info">  $${dest.estimatedLodgingCostPerDay} night</p>
+                <p class="figure-info"> $${dest.estimatedFlightCostPerPerson} flights Per Person </p>
+                </div>
+            </figure>`;
+    });
 }
 
