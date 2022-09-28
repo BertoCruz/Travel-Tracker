@@ -20,8 +20,8 @@ function instantiateAllData() {
             console.log("DESTINATIONS DATA======", destinationsData);
             allTravelers = new Traveler(travelersData);
             if(loggedIn){
-                // currentTraveler = new Traveler((travelersData[loginID]))
-                currentTraveler = new Traveler((travelersData[49]))
+                currentTraveler = new Traveler((travelersData[loginID]))
+                // currentTraveler = new Traveler((travelersData[49]))
                 // currentTraveler = new Traveler(
                 //     travelersData[Math.floor(Math.random() * travelersData.length)]
                 // );
@@ -45,6 +45,7 @@ const destinationsScroll = document.querySelector("#destinationsScroll")
 const scrollDestinations = document.querySelector("#scrollDestinations");
 const pastTrips = document.querySelector("#pastTrips");
 const travelerInfo = document.querySelector("#travelerInfo");
+const userInput = document.querySelector("#userInput");
 
 //event handlers
 window.addEventListener("load", instantiateAllData);
@@ -97,9 +98,11 @@ function showHideLoginForm() {
         login.classList.add("hidden");
         welcomeMessage.classList.remove("hidden");
         mainTrips.classList.remove("hidden");
+        userInput.classList.remove("hidden")
     } else if (login.classList.value.includes("hidden")) {
         welcomeMessage.classList.add("hidden");
         mainTrips.classList.add("hidden");
+        userInput.classList.add("hidden");
         login.classList.remove("hidden");
     }
 };

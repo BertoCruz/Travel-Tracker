@@ -14,10 +14,10 @@
 <body>
   <header>
     <h1>Travel Tracker<span class="material-symbols-outlined">airlines</span></h1>
-    <section class="welcome" id="welcomeMessage"></section>
+    <section class="welcome hidden" id="welcomeMessage"></section>
   </header>
   <main class="main">
-    <section class="login hidden" id="login"> 
+    <section class="login" id="login"> 
       <form class="login-form" id="loginForm">
         <div class="form-container1">
           <label for="userName">Username:</label>
@@ -33,9 +33,8 @@
         <p class="login-message" id="loginMessage"></p>
       </form>
     </section>
-
     <!-- I will select a date, duration, number of travelers and choose from a list of destinations -->
-    <section class="user-input" id="userInput">
+    <section class="user-input hidden" id="userInput">
       <form action="#" class="form" id="">
         <div class="form-item">
           <input type="date" class="form-input" id="start" name="form-date" value="2022-09-27" min="2022-01-01" max="2023-12-31" aria-label="date">
@@ -55,7 +54,7 @@
         <button class="form-button" type="submit">submit</button>
       </form>
     </section>
-    <section class="main-trips" id="mainTrips">
+    <section class="main-trips hidden" id="mainTrips">
       <!-- <section class="upcoming-trips-container" id="upcomingTripsContainer"> -->
       <section class="upcoming-trips-container" id="upcomingTripsContainer">
         <h2 class="upcoming-trips">Upcoming trips</h2>
