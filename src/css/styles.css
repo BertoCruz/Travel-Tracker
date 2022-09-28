@@ -39,6 +39,11 @@ h3 {
   margin: 10px 0;
 }
 
+.material-symbols-outlined {
+  font-size: 50px;
+  text-align: center;
+}
+
 .login {
   width: 100%;
   display: flex;
@@ -90,9 +95,9 @@ body {
 }
 
 main {
-    /* align-content: space-around; */
-    /* display: flex; */
-    /* flex-wrap: wrap; */
+    align-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
     height: 100vh;
     /* justify-content: space-evenly; */
     width: 100vw;
@@ -101,10 +106,10 @@ main {
 /* main trips */
 .main-trips {
     /* align-content: space-around; */
-    /* display: flex; */
-    /* flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: wrap;
     height: 100vh;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
     width: 100vw;
 }
 
@@ -114,6 +119,7 @@ main {
   width: 47%;
   border-radius: 3rem;
   margin-left: 25%;
+  height: 5rem;
 }
 
 .form {
@@ -320,27 +326,27 @@ main {
 }
 
 .past-trip-widget {
-    align-items: center;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    min-height: 15rem;
-    max-height: 30rem;
-    justify-content: space-evenly;
-    width: 50rem;
-  }
-  .past-trip-tag {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%), 0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 6rem;
-    font-size: 0.7rem;
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 15rem;
+  max-height: 30rem;
+  justify-content: space-evenly;
+  width: 50rem;
+}
+.past-trip-tag {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%), 0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 6rem;
+  font-size: 0.7rem;
 }
 
 .past-trip-tag h3 {
@@ -368,3 +374,44 @@ main {
   margin: auto; 
 }
 
+/* traveler info */
+.traveler-info-container {
+  margin-left: 2rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.traveler-info-container h2 {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.traveler-info-widget {
+  align-items: center;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%), 0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 15rem;
+  max-height: 30rem;
+  justify-content: space-evenly;
+  width: 27rem;
+}
+
+.traveler-info-profile {
+  display: flex;
+  align-items: center;
+}
+.traveler-info-profile span{
+  font-size: 8rem;
+}
+
+.traveler-info-message {
+  /* width: 50%;
+  height: 50%; */
+}
+.traveler-info-disclaimer p {
+  font-size: .7rem;
+}
