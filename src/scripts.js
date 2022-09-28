@@ -44,6 +44,7 @@ const upcomingTrips = document.querySelector("#upcomingTrips");
 const destinationsScroll = document.querySelector("#destinationsScroll")
 const scrollDestinations = document.querySelector("#scrollDestinations");
 const pastTrips = document.querySelector("#pastTrips");
+const travelerInfo = document.querySelector("#travelerInfo");
 
 //event handlers
 window.addEventListener("load", instantiateAllData);
@@ -107,6 +108,7 @@ function loadTraveler() {
     renderWelcomeMessage();
     renderUpcomingApprovedTrips();
     renderPastTrips();
+    renderTravelerInfo();
 }
 
 function renderWelcomeMessage() {
@@ -201,4 +203,24 @@ function renderPastTrips() {
             <p class="past-trip-duration">${trip.duration} days</p>
         </div>`;
     });
+}
+
+function renderTravelerInfo() {
+    const allApprovedTrips = trips.getAllApprovedTrips(currentTraveler.id);
+    const tripsThisYear = allApprovedTrips.filter(trip => trip.date.includes(dayjs(currentDate).format("YYYY")));
+    console.log(tripsThisYear)
+    travelerInfo.innerHTML =  `
+        <div class="traveler-info-profile">
+            <span class="material-symbols-outlined">account_circle</span>
+            <h3>${currentTraveler.name}</h3>
+        </div>
+        <div class="traveler-info-message">
+            <p>${tripsThisYear.length} trips down this year & so much more awaits!</p>
+        </div>
+        <div class="traveler-info-expenses">
+            <p>This years travels: $${destinations.calculateAYearTripsExpense(allApprovedTrips, dayjs(currentDate).format("YYYY"))}</p>
+        </div>
+        <div class="traveler-info-disclaimer">
+            <p>* costs do not reflect pending requests</p>
+        </div>`;
 }
