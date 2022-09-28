@@ -3,11 +3,12 @@
 *::after {
     box-sizing: border-box;
     font-family: "Rubik", sans-serif;
+    color: var(--clr-softDark);
     /* font weights at 300(light) 400(regular) 500(medium) 700(bold) */
 }
 
 :root {
-    --clr-primary: #f70058;
+    --clr-red: #f70058;
     --clr-dark: #0c0e36;
     --clr-softDark: #414a4c;
     --clr-light: #fff;
@@ -28,6 +29,16 @@ h1 {
     margin: 8px 0;
 }
 
+h2 {
+  color: var(--clr-softDark);
+  font-weight: 500;
+}
+h3 {
+  color: var(--clr-softDark);
+  font-weight: 400;
+  margin: 10px 0;
+}
+
 .login {
   width: 100%;
   display: flex;
@@ -40,14 +51,14 @@ h1 {
   width: 400px;
 }
 
-.form-container {
+.form-container1 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.form-container label {
+.form-container1 label {
   margin-right: 20px;
 }
 
@@ -60,9 +71,10 @@ h1 {
 }
 
 .login-message {
-  color: var(--clr-primary);
+  color: var(--clr-red);
   text-align: center;
 }
+
 
 body {
     margin: 0;
@@ -77,16 +89,282 @@ body {
     display: none;
 }
 
+main {
+    /* align-content: space-around; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    height: 100vh;
+    /* justify-content: space-evenly; */
+    width: 100vw;
+}
+
+/* main trips */
+.main-trips {
+    /* align-content: space-around; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    height: 100vh;
+    /* justify-content: space-evenly; */
+    width: 100vw;
+}
+
+/* travel form */
+.user-input {
+  background: white;
+  width: 47%;
+  border-radius: 3rem;
+  margin-left: 25%;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%), 0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
+  border-radius: 3rem;
+  border: 8px solid white;
+  overflow: hidden;
+  width: 100%;
+  /* min-width: 500px; */
+  /* max-width: 300px; */
+  max-width: 80rem;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input,
+.form-button {
+  font-family: inherit;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  border: 0;
+}
+
+.form-input {
+  padding: 1.5rem;
+}
+
+.form-input::placeholder {
+  opacity: 0.35;
+}
+
+.form-input:focus::placeholder {
+  color: var(--clr-red);
+  opacity: 0.85;
+}
+
+.form-item {
+  position: relative;  
+}
+
+.form-item::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.form-button {
+  background: var(--clr-softDark);
+  color: white;
+  border-radius: 3rem;
+  margin-left: auto;
+  padding: 1.25rem 2.25rem;
+}
+
+
 .widget {
     align-items: center;
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075),
-        0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075),
-        0 16px 16px hsl(0deg 0% 0% / 0.075);
+    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%), 0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
     display: flex;
     flex-direction: row;
-    font-family: "Roboto", sans-serif;
-    height: 35%;
-    width: 40%;
+    min-height: 20rem;
+    /* min-width: 20rem; */
+    width: 20rem;
+    max-width: 40rem;
+    justify-content: center;
 }
+
+/* inline scroll for upcoming trips suggestion */
+.destination-wrapper {
+  max-height: 500px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+  display: grid;
+  gap: 5rem;
+  grid-auto-flow: column;
+  /* padding: 0 2rem 2rem; */
+  grid-auto-columns: 21%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.destination-scroll {
+  /* display: inline-block; */
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+  margin: 1rem;
+  padding: 1rem;
+  background: var(--clr-off);
+  width: 300px;
+  border-radius: 12px;
+  display: grid;
+  scroll-behavior: smooth;
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1rem;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}
+
+/* upcoming trips */
+.upcoming-trips-container {
+  max-height: 25rem;
+  width: auto;
+  margin-left: 2rem;
+}
+.upcoming-trips-container {
+  max-height: 500px;
+  width: 100%;
+}
+.upcoming-trips-container-scroll {
+  max-height: 500px;
+  width: 100%;
+}
+
+.upcoming-trips-container h2 {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-trip-card {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+}
+
+.upcoming-trip-card-city {
+  width: 200px;
+  max-height: 30px ;
+}
+
+.upcoming-trip-card-img {
+  position: relative;
+  height: 10rem;
+  width: 15rem;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.upcoming-dest-card-img {
+  position: relative;
+  height: 10rem;
+  width: 18.8rem;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/*added aspect ratio b/c all pictures are't the same size */
+.upcoming-trip-card-img img {
+  height: auto;
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.upcoming-dest-card-img img {
+  height: auto;
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+} 
+
+.upcoming-trip-card-dates {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.upcoming-trip-card-dates p {
+  color: var(--clr-softDark);
+  margin: 5px 0;
+}
+
+/* past trips */
+.past-trips-container {
+  margin-left: 2rem;
+  width: 50rem;
+  height: 25rem;
+}
+
+.past-trips-container h2 {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.past-trip-widget {
+    align-items: center;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 15rem;
+    max-height: 30rem;
+    justify-content: space-evenly;
+    width: 50rem;
+  }
+  .past-trip-tag {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%), 0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 6rem;
+    font-size: 0.7rem;
+}
+
+.past-trip-tag h3 {
+  width: 15rem;
+}
+
+.past-trip-tag p {
+  width: 7rem;
+}
+
+.past-trip-img-container {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  margin-left: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.past-trip-img-container img {
+  height: 6rem;
+  inline-size: 100%;
+  margin-top: 10px;
+  object-fit: cover;
+  margin: auto; 
+}
+
