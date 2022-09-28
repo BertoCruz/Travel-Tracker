@@ -106,7 +106,7 @@ function showHideLoginForm() {
 function loadTraveler() {
     renderWelcomeMessage();
     renderUpcomingApprovedTrips();
-    // displayDestinations();
+    renderPastTrips();
 }
 
 function renderWelcomeMessage() {
@@ -134,7 +134,7 @@ function renderUpcomingApprovedTrips() {
                 <div class="upcoming-trip-card-img">
                     <img src="${destinationInfo[0].image}" alt="" class=""></img>
                 </div>
-                <div class="upcoming-trip-card-info">
+                <div class="upcoming-trip-card-city">
                     <h3 class="city">${destinationInfo[0].destination}</h3>
                 </div>
                 <div class="upcoming-trip-card-dates">
@@ -187,8 +187,18 @@ function renderPastTrips() {
     const pastTripsData = trips.getAllPastTrips(currentTraveler.id, currentDate);
     
     pastTripsData.forEach(trip => {
+        const destinationInfo = destinations.getDestination(trip.destinationID);
+        const date = new Date(trip.date.split("/").join("-"));
         pastTrips.innerHTML += `
-        <div>
+        <div class="past-trip-tag">
+            <div class="past-trip-img-container">
+                <img src="${destinationInfo[0].image}" alt="" class=""></img>
+            </div>
+            <h3 class="city">${destinationInfo[0].destination}</h3>
+            <p>${dayjs(trip.date).format("MMMDD")}-${dayjs(
+        getDateXDaysAhead(trip.duration, date)
+    ).format("MMMDD")}  ${dayjs(trip.date).format("YYYY")}</p>
+            <p class="past-trip-duration">${trip.duration} days</p>
         </div>`;
     });
 }

@@ -17,11 +17,11 @@
   <main class="main">
     <section class="login hidden" id="login"> 
       <form class="login-form" id="loginForm">
-        <div class="form-container">
+        <div class="form-container1">
           <label for="userName">Username:</label>
           <input type="text" id="userName" name="username-value" autocomplete="username">
         </div>
-        <div class="form-container">
+        <div class="form-container1">
           <label for="password">Password: </label>
           <input type="password" id="password" name="password-value" autocomplete="current-password">
         </div>
@@ -31,6 +31,29 @@
         <p class="login-message" id="loginMessage"></p>
       </form>
     </section>
+
+    <!-- I will select a date, duration, number of travelers and choose from a list of destinations -->
+    <section class="user-input" id="userInput">
+      <form action="#" class="form" id="">
+        <div class="form-item">
+          <input type="date" class="form-input" id="start" name="form-date" value="2022-09-27" min="2022-01-01" max="2023-12-31" aria-label="date">
+        </div>
+        <div class="form-item">
+          <input type="number" class="form-input" placeholder="duration" name="duration" aria-label="duration" required="required">
+        </div>
+        <div class="form-item">
+          <input type="number" class="form-input" placeholder="# of travelers" name="num-of-travelers" aria-label="duration" required="required">
+        </div>
+        <div class="form-item">
+          <input type="number" class="form-input" placeholder="duration" name="duration" aria-label="duration" required="required">
+        </div>
+        <div class="form-item">
+          <input type="menu" class="form-input" placeholder="destination" name="destinations" required="required">
+        </div>
+        <button class="form-button" type="submit">submit</button>
+      </form>
+    </section>
+
     <section class="user-input hidden" id="user-input">
       <div class="form-container">
         <button class="add-data" id="addData">ADD NEW DATA</button>
@@ -67,17 +90,19 @@
         </form>
       </div>
     </section>
+
     <section class="main-trips" id="mainTrips">
       <!-- <section class="upcoming-trips-container" id="upcomingTripsContainer"> -->
-      <section class="upcoming-trips-container-scroll" id="upcomingTripsContainer">
+      <section class="upcoming-trips-container" id="upcomingTripsContainer">
         <h2 class="upcoming-trips">Upcoming trips</h2>
         <section class="widget" id="upcomingTrips">  
         </section>
         <div class="destination-wrapper snaps-inline" id="scrollDestinations"></div>
       </section>
+      
       <section class="past-trips-container" id="">
         <h2 class="past-trips">Past trips</h2>
-        <section class="widget" id="pastTrips">
+        <section class="past-trip-widget" id="pastTrips">
         </section>
       </section>
     </section>
