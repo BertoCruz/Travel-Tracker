@@ -47,8 +47,10 @@ h3 {
 .login {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-content: center;
+  position: relative;
+  bottom: 10rem;
 }
 
 .login-form {
@@ -88,10 +90,6 @@ body {
     line-height: 1.6;
     background: var(--clr-off);
     /* background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); */
-}
-
-.hidden {
-    display: none;
 }
 
 main {
@@ -414,4 +412,8 @@ main {
 }
 .traveler-info-disclaimer p {
   font-size: .7rem;
+}
+
+.hidden {
+    display: none;
 }
